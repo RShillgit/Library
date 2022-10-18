@@ -1,26 +1,54 @@
+@font-face {
+    font-family: FuzzyBubbles;
+    src: url(static/Fuzzy_Bubbles/FuzzyBubbles-Regular.ttf);
+}
+html {
+    font-family: FuzzyBubbles;
+}
+.header, .header > button, .footer {
+    font-weight: 600;
+    color: #eff1f3;
+}
+.header, .footer {
+    background-color: #d77a61;
+}
 .layout {
     display: flex;
     flex-direction: column;
 }
-.layout > .pageTitle {
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-}
-.layout .library {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    padding: 20px;
-    align-items: center;
-}
 
-.library .addBook {
+.header {
+    display: flex;
+    justify-content: space-around;
+    font-size: 40px;
+}
+.header > button {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: none;
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #223843;
+    font-family: FuzzyBubbles;
+}
+.layout .addBook {
+    display: flex;
+    padding: 20px;
+    align-self: center;
+    position: absolute;
+    z-index: 10;
     border: 2px solid black;
     padding: 20px;
     margin: 20px;
     width: max-content;
+    background-color: #223843;
+    color: #eff1f3;
 }
-.library .addBook > #bookForm {
+.addBook > #bookForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,10 +62,21 @@
 
 .layout .books {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 10px;
 }
 .book {
     border: 2px solid black;
     padding: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

@@ -10,34 +10,33 @@
 </head>
 <body>
     <div class="layout">
-        <div class="pageTitle">
+        <div class="header">
             <p>Book Library</p>
+            <button id="addABook">Add Book</button>
         </div>
         
-        <div class="library">
-            <div class="addBook">
-                <form id="bookForm">
-                    <label>Title: <input class="info" type="text"></label>
-                    <label>Author: <input class="info" type="text"></label>
-                    <label>Pages: <input class="info" type="text"></label>
-                    <label>Read: <input class="info" type="checkbox"></label>
-                    <button type="button" id="addBookBtn">Add Book</button>
-                </form>
-            </div>
-
-            <div class="books">
-
-                <div class="book">
-                    <p>Title: Sample Book card</p>
-                    <p>Author: The rest will be generated with javascript</p>
-                    <p>Pages: 520</p>
-                    <label> Read: <input type="checkbox"></label>
-                </div>
-    
-            </div>
-            
+        
+        <div class="addBook">
+            <form id="bookForm">
+                <label>Title: <input class="info" type="text"></label>
+                <label>Author: <input class="info" type="text"></label>
+                <label>Pages: <input class="info" type="text"></label>
+                <label>Read: <input class="info" type="checkbox"></label>
+                <button type="button" id="addBtn">Add</button>
+            </form>
         </div>
 
+        <div class="books">
+
+        </div>
+        
+
+        <div class="footer">
+            <p>Made by RShillgit</p>
+            <a href="https://github.com/RShillgit/Library">
+                <img src="static/GitHub-Mark-Light-32px.png" alt="Github">
+            </a>
+        </div>
     </div> 
 </body>
 </html>
