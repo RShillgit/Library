@@ -14,12 +14,24 @@
     align-items: center;
 }
 
-.library .addBook > form {
+.library .addBook {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+    width: max-content;
+}
+.library .addBook > #bookForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
+#bookForm > label {
+    padding: 10px;
+    display: flex;
+    align-self: flex-end;
+    gap: 10px;
+}
+
 .layout .books {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
