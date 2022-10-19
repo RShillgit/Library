@@ -5,7 +5,7 @@ const addBook = document.getElementById('addABook');
 const books = document.querySelector('.books');
 
 const addBookDiv = document.querySelector('.addBook');
-addBookDiv.style.display = "none"
+addBookDiv.style.display = "none";
 
 // Array that will hold all of the Book objects created by the user
 let myLibrary = [];
@@ -28,6 +28,7 @@ Book.prototype.changeDisplayed = function() {
     return this.displayed = !this.displayed;
 };
 
+// Takes an array of Book objects as input and displays them on the screen
 function displayBook(myLibrary) {
     myLibrary.forEach((object) => {
         // If the object is displayed already return, else display its information
@@ -49,7 +50,8 @@ function displayBook(myLibrary) {
         const bRead = document.createElement('label');
         const bReadInput = document.createElement('input');
         bReadInput.type = "checkbox"
-        bReadInput.disabled
+        bReadInput.id = "readCheckbox";
+        bReadInput.disabled = true;
         bRead.innerHTML = 'Read: ';
         bRead.appendChild(bReadInput);
         const bReadSwitch = document.createElement('button');
@@ -95,25 +97,32 @@ function addBookToLibrary() {
     // Get values of each input field
     const info = document.querySelectorAll('.info');
     info.forEach((e) => {
-        if (e.type == 'checkbox') return valueArray.push(e.checked);
-        return valueArray.push(e.value);
-        // Create new Book object with these values
+        if (e.type == 'checkbox') {
+            valueArray.push(e.checked);
+            // Clear check after pushing
+            return e.checked = false;
+        }
+        valueArray.push(e.value);
+        // Clear inputs
+        return e.value = "";
     });
+    // No entry handling
+    for (let i = 0; i < (valueArray.length - 1); i++) if(valueArray[i] < 1) return;
+    
     let book = new Book(valueArray[0], valueArray[1], valueArray[2]); 
     // If read is checked, change book status to read
     if (valueArray[3] == true) book.changeStatus();
     // Add new book to myLibrary array and send that array to the display function
     myLibrary.push(book);
+    // Close add book form
+    addBookDiv.style.display = "none";
     return displayBook(myLibrary);
 };
 
 // Function that displays the add book form when you click add book
 addBook.addEventListener('click', () => {
     if(addBookDiv.style.display === "none") {
-        console.log('click')
         return addBookDiv.style.display = "block";
-        
     }
     else return addBookDiv.style.display = "none";
 });
-
