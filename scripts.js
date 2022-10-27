@@ -10,22 +10,26 @@ addBookDiv.style.display = "none";
 // Array that will hold all of the Book objects created by the user
 let myLibrary = [];
 
-// Constructor function
-function Book(title, author, pages) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = false;
-    this.displayed = false;
-};
+class Book {
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = false;
+        this.displayed = false;
+    };
+    // Getter
+    get book() {
+        return this;
+    }
 
-// Prototype that changes the read property
-Book.prototype.changeStatus = function() {
-    return this.read = !this.read;
-};
-// Prototype that changes displayed property
-Book.prototype.changeDisplayed = function() {
-    return this.displayed = !this.displayed;
+    changeStatus() {
+        return this.read = !this.read;
+    };
+
+    changeDisplayed() {
+        return this.displayed = !this.displayed;
+    };
 };
 
 // Takes an array of Book objects as input and displays them on the screen
